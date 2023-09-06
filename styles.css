@@ -1,0 +1,199 @@
+* {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: 0;
+    color: #000;
+    line-height: 34px;
+    font: 14px/1.9 "Open Sans", "Arial", sans-serif;
+}
+
+@font-face {
+    src: url("../fonts/opensans.woff2") format("woff2"), ("../../fonts/opensans.woff") format("woff");
+    font-family: "open sans";
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    src: url("../fonts/opensansbold.woff2") format("woff2"), ("../fonts/opensansbold.woff") format("woff");
+    font-family: "open sans";
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    src: url("../fonts/opensans.woff2") format("woff2");
+    src: url("../fonts/opensans.woff") format("woff");
+    font-family: "open sans";
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+  @font-face {
+    src: url("../fonts/opensans.woff2") format("woff2");
+    src: url("../fonts/opensansbold.woff") format("woff");
+    font-family: "open sans";
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+  }
+
+/*если делать без анимации*/
+/*.menu-on-drop input, .menu-categories__drop { 
+    display: none; 
+}
+
+.menu-on-drop :checked ~ .menu-categories__drop {
+    display: block;
+    width: 150px;
+}*/
+
+.main-nav__group {
+    margin-left: 56px;
+    margin-top: 99px;
+}
+
+.main-nav__title {
+    margin-bottom: 25px;
+}
+
+.main-nav__title a {
+    color: #7C7C7C;
+}
+
+.menu-categories__item {
+    margin: 7px 0;
+    cursor: pointer;
+    display: grid;
+    width: 178px;
+    align-items: stretch;
+}
+
+.menu-categories__label:hover + .main-nav__group-link,
+.menu-categories__link:hover,
+.main-nav__group-link:hover {
+    color: #ffa200;
+    transition-duration: 0.3s;
+}
+
+/*меняем цвет кружка при наведении*/
+.menu-categories__label:hover,
+.main-nav__group-link:hover ~ .menu-categories__label {
+    background-color: #ffa200;
+    transition-duration: 0.3s;
+}
+
+/*меняем цвет стрелки при наведении*/
+.main-nav__group-link:hover ~ .menu-categories__label .menu-categories__svg path,
+.menu-categories__label:hover .menu-categories__svg path {
+    stroke: #ffffff;
+    transition-duration: 0.3s;
+}
+
+/* Элемент label который запускает открыть/закрыть.*/
+.menu-categories__label {
+    grid-column: 2/3;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f9f9f9;
+    cursor: pointer;
+    margin-top: 2px;
+}
+
+.menu-categories__svg {
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+/* меняем положение стрелки у активного переключателя */
+.menu-categories__toggle:checked ~ .menu-categories__label {
+    transform: rotate(-180deg);
+    transition-duration: 0.3s;
+    transform-origin: center;
+}
+
+.menu-categories__title {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    width: 154px;
+}
+
+.menu-categories__title-s {
+    width: 134px; 
+}
+
+/* эти элементы checkbox всегда должны быть скрыты.*/
+.menu-categories__toggle {
+  position: absolute;
+  visibility: hidden;
+}
+
+/* скрытое содержание аккордеона.*/
+.menu-categories__drop {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin-top: 2px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  background-color: #fff;
+  color: #000;
+  margin-left: 10px;
+}
+
+.menu-categories__drop .main-nav__group-link {
+  font-size: 12px;
+}
+
+.menu-categories__drop .menu-categories__item {
+  margin: 10px 0;
+}
+
+/*жирный шрифт на заголовок при раскрытии списка*/
+.menu-categories__toggle:checked ~ .menu-categories__title {
+  font-weight: 700;
+  transition-duration: 0.3s;
+}
+
+/*подсвечивание заголовка списка при наведении на стрелку*/
+.menu-categories__toggle:hover ~ .menu-categories__title {
+  color: #FFA200;
+}
+
+/*показать содержимое аккордеона.*/    
+.menu-categories__drop.is-visible {
+  position: static;
+  overflow: visible;
+  clip: auto;
+  height: auto;
+/* задержка появления  функция анимации */
+  animation:fadeIn ease-in 0.5s; 
+  animation-fill-mode: forwards;
+}
+
+/*анимация при скрытии списка аккордиона*/
+.menu-ategories__drop.is-hidden {
+  animation: fadeOut 0.5s ease-in-out;
+}
+
+/* анимация при появлении блоков с содержанием */
+@keyframes fadeIn {
+    from { opacity: 0; }
+  to { opacity: 1 }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+to { opacity: 0 }
+}
+
